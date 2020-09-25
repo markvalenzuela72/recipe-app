@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { recipeData } from '../data/tempDetails';
 import { Link } from 'react-router-dom';
 
 
@@ -12,15 +11,15 @@ export default class SingleRecipe extends Component {
             // recipe: recipeData,
             recipe:{},
             id,
-            loading: false
+            loading: true
         }
     }
     async componentDidMount(){
-        const url = `https://api.spoonacular.com/recipes/${this.state.id}/information?apiKey=7450e89855fd44f5839461e75572f01e`;
+        const url = `https://api.spoonacular.com/recipes/${this.state.id}/information?apiKey=${process.env.REACT_APP_API_KEY}`;
         try{
             const response = await fetch(url);
             const responseData =await response.json();
-            // console.log(responseData);
+            console.log(responseData);
             this.setState({
                 recipe: responseData,
                 loading: false
