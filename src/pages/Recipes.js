@@ -21,7 +21,7 @@ export default class Recipes extends Component {
         try {
             const data = await fetch(this.state.url);
             const jsonData = await data.json();
-            console.log(jsonData.results);
+            // console.log(jsonData.results);
             if (jsonData.results.length === 0) {
                 this.setState({
                   error:
@@ -50,7 +50,7 @@ export default class Recipes extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const { base_url, query, search } = this.state;
-        console.log(e);
+        // console.log(e);
         this.setState({
             url: `${base_url}${query}${search}`,
             search: ''
