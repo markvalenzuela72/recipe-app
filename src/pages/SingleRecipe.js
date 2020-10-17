@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
+// import {recipeData} from '../data/tempDetails';
 
 export default class SingleRecipe extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ export default class SingleRecipe extends Component {
         try{
             const response = await fetch(url);
             const responseData =await response.json();
-            console.log(responseData);
+            // console.log(responseData);
             this.setState({
                 recipe: responseData,
                 loading: false
@@ -47,14 +48,14 @@ export default class SingleRecipe extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-10 mx-auto col-md-6 my-3">
-                        <Link className="btn btn-warning mb-5 text-capitalize">Back to Recipe List</Link>
+                        <Link className="btn btn-warning mb-5 text-capitalize" to="/recipes">Back to Recipe List</Link>
                         <img src={image} className="d-block w-100" style={{ maxHeight: "30rem" }} alt="recipe" />
                     </div>
                     {/* info */}
                     <div className="col-10 mx-auto col-md-6 my-3">
                         <h6 className="text-uppercase ">{title}</h6>
                         <h6 className="text-warning text-capitalize text-slanted">Provided by {sourceName}</h6>
-                        <div class="cusine">
+                        <div className="cusine">
                             {cuisines && cuisines.map((item, index) => {
                                 return (
                                     <span class="badge badge-pill badge-warning mr-3" key={index}>{item}</span>
@@ -64,8 +65,8 @@ export default class SingleRecipe extends Component {
                         <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-2 text-capitalize" >
                             Recipe Url
                        </a>
-                        <ul class="list-group mt-4">
-                            <h2 class="mt-3 mb-4">Ingredients</h2>
+                        <ul className="list-group mt-4">
+                            <h2 className="mt-3 mb-4">Ingredients</h2>
                             {extendedIngredients && extendedIngredients.map((item, index) => {
                                 return (
                                     <li key={index} className="list-group-item text-slanted">
