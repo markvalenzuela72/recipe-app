@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import RecipeList from '../components/RecipeList'
 import Search from '../components/Search'
-// import { recipeData } from '../data/tempList'
+import { recipeData } from '../data/tempList'
 
 export default class Recipes extends Component {
     constructor(props) {
@@ -10,7 +10,7 @@ export default class Recipes extends Component {
         // console.log(props);
     }
     state = {
-        recipes: '',
+        recipes: recipeData,
         search: "",
         url: `https://api.spoonacular.com/recipes/complexSearch?maxCarbs=5&number=10&apiKey=${process.env.REACT_APP_API_KEY}`,
         base_url: `https://api.spoonacular.com/recipes/complexSearch?maxCarbs=5&number=10&apiKey=${process.env.REACT_APP_API_KEY}`,
@@ -78,6 +78,7 @@ export default class Recipes extends Component {
                     ) : (
                     <RecipeList recipes={this.state.recipes} />
                     )}
+                    
             </>
         );
     }
