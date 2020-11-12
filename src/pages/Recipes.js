@@ -29,7 +29,7 @@ export default class Recipes extends Component {
                 });
               } else {
                 this.setState({
-                  recipes: jsonData.recipes,
+                  recipes: jsonData.results,
                   error: ""
                 });
               }
@@ -40,7 +40,6 @@ export default class Recipes extends Component {
 
     componentDidMount() {
         this.getRecipes();
-
     }
     handleChange = (e) => {
         this.setState({
@@ -76,6 +75,7 @@ export default class Recipes extends Component {
                         </div>
                     </section>
                     ) : (
+                        // console.log(this.state.recipes)
                     <RecipeList recipes={this.state.recipes} />
                     )}
                     

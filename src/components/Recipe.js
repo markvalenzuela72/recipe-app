@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default class Recipe extends Component {
 
     render() {
-        // console.log(this.props.recipe)
+        // console.log(this.props.recipes)
         const { id, image, title, sourceUrl, nutrition } = this.props.recipe;
         const carbsCount = nutrition.nutrients[0].amount;
         return (
