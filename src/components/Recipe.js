@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 export default class Recipe extends Component {
 
     render() {
-        // console.log(this.props.recipes)
-        const { id, image, title, sourceUrl, nutrition } = this.props.recipe;
+        console.log(this.props.recipe)
+        const { id, image, title, nutrition } = this.props.recipe;
         const carbsCount = nutrition.nutrients[0].amount;
         return (
             <div className="col-10 mx-auto col-md-6 col-lg-4 my-3">
@@ -17,10 +17,7 @@ export default class Recipe extends Component {
                             Carbs Count: {carbsCount}</h6>
                     </div>
                     <div className="card-footer">
-                        <Link className="btn btn-primary text-capitalize" to={`/recipes/${id}`} >Details</Link>
-                        <a className="btn btn-success mx-2 text-capitalize" href={sourceUrl} target="_blank" rel="noopener noreferrer">
-                            Recipe URL
-                        </a>  
+                        <Link className="btn btn-primary text-capitalize" to={`/recipes/${id}`} >Details</Link>  
                     </div>
                 </div>
             </div>
